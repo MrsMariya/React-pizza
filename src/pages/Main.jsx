@@ -11,6 +11,7 @@ const Main = () => {
   useEffect(() => {
     axios.get('https://62cef9f4826a88972d06f45e.mockapi.io/items')
     .then((res) => setItems(res.data))
+    window.scrollTo(0, 0)
   }, [])
 
   return (

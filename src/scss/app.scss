@@ -1,6 +1,5 @@
 @import 'variables';
 @import 'libs/normalize';
-
 @import 'components/all';
 
 body {
@@ -14,6 +13,11 @@ body {
   margin: 50px auto;
   border-radius: 10px;
   max-width: 1400px;
+
+  @media (max-width: 768px) {
+    width: calc(100vw - 20px);
+    margin-top: 15px;
+  }
 }
 
 .content {
@@ -21,18 +25,48 @@ body {
 
   &__title {
     margin: 35px 0;
+
+    @media (max-width: 786px) {
+      text-align: center;
+    }
   }
 
   &__items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 10px;
+
+    @media (max-width: 1440px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 1060px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 786px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   &__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 1300px) {
+      flex-direction: column-reverse;
+
+      .categories {
+        margin-top: 20px;
+
+        ul {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+    }
   }
 }
 
@@ -72,6 +106,10 @@ body {
         stroke-width: 1.9;
       }
     }
+  }
+
+  .content__items {
+    display: block;
   }
 
   &__clear {
